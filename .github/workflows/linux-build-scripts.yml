@@ -1,26 +1,27 @@
 name: linux build scripts
 
 on:
-  push:
-    branches:
-      - development
-      - main
-    paths:
-      - '.github/workflows/linux-build-scripts.yml'
-      - 'linux/**'
-      - 'scripts/**'
-      - 'tools/**'
-      - 'linux.sh'
-  pull_request:
-    branches:
-      - development
-      - main
-    paths:
-      - '.github/workflows/linux-build-scripts.yml'
-      - 'linux/**'
-      - 'scripts/**'
-      - 'tools/**'
-      - 'linux.sh'
+  workflow_dispatch:
+  # push:
+  #   branches:
+  #     - development
+  #     - main
+  #   paths:
+  #     - '.github/workflows/linux-build-scripts.yml'
+  #     - 'linux/**'
+  #     - 'scripts/**'
+  #     - 'tools/**'
+  #     - 'linux.sh'
+  # pull_request:
+  #   branches:
+  #     - development
+  #     - main
+  #   paths:
+  #     - '.github/workflows/linux-build-scripts.yml'
+  #     - 'linux/**'
+  #     - 'scripts/**'
+  #     - 'tools/**'
+  #     - 'linux.sh'
 
 jobs:
   build-main-on-ubuntu-2204:

@@ -1,30 +1,31 @@
 name: tvos build scripts
 
 on:
-  push:
-    branches:
-      - development
-      - main
-    paths:
-      - '.github/workflows/tvos-build-scripts.yml'
-      - 'apple/**'
-      - '!apple/README.md'
-      - 'scripts/**'
-      - 'tools/**'
-      - 'apple.sh'
-      - 'tvos.sh'
-  pull_request:
-    branches:
-      - development
-      - main
-    paths:
-      - '.github/workflows/tvos-build-scripts.yml'
-      - 'apple/**'
-      - '!apple/README.md'
-      - 'scripts/**'
-      - 'tools/**'
-      - 'apple.sh'
-      - 'tvos.sh'
+  workflow_dispatch:
+  # push:
+  #   branches:
+  #     - development
+  #     - main
+  #   paths:
+  #     - '.github/workflows/tvos-build-scripts.yml'
+  #     - 'apple/**'
+  #     - '!apple/README.md'
+  #     - 'scripts/**'
+  #     - 'tools/**'
+  #     - 'apple.sh'
+  #     - 'tvos.sh'
+  # pull_request:
+  #   branches:
+  #     - development
+  #     - main
+  #   paths:
+  #     - '.github/workflows/tvos-build-scripts.yml'
+  #     - 'apple/**'
+  #     - '!apple/README.md'
+  #     - 'scripts/**'
+  #     - 'tools/**'
+  #     - 'apple.sh'
+  #     - 'tvos.sh'
 
 jobs:
   build-main-on-macos-sonoma:
