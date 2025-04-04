@@ -60,7 +60,7 @@ jobs:
 
       - name: Upload xcframework zip as artifact
         if: ${{ success() }}
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: ffmpeg-kit-https-6.0.3-ios-xcframework
           path: prebuilt/bundle-apple-xcframework-ios/ffmpeg-kit-https-6.0.3-ios-xcframework.zip
