@@ -282,4 +282,4 @@ Then, you can use the following API methods to execute `FFmpeg` and `FFprobe` co
 ### 4. Test Application
 
 You can see how `FFmpegKit` is used inside an application by running `Linux` test applications developed under the
-[FFmpegKit Test](https://github.com/arthenica/ffmpeg-kit-test) project.
+[FFmpegKit Test](https://github.com/Albrecht-Ohsiek/ffmpeg-kit-test) project.
