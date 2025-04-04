@@ -33,8 +33,7 @@ jobs:
     runs-on: macos-14
     strategy:
       matrix:
-        xcode: [ '16.2' ]
-        # xcode: [ '15.4', '16.2' ]
+        xcode: [ '15.4', '16.2' ]
     defaults:
       run:
         shell: bash
@@ -52,12 +51,20 @@ jobs:
       - name: print ffbuild logs
         if: ${{ failure() }}
         run: '[[ -f ./src/ffmpeg/ffbuild/config.log ]] && tail -50 ./src/ffmpeg/ffbuild/config.log'
-      - name: Upload xcframework as artifact
+
+      - name: Zip the xcframework
+        if: ${{ success() }}
+        run: |
+          cd prebuilt/bundle-apple-xcframework-ios
+          zip -r ffmpeg-kit-https-6.0.3-ios-xcframework.zip *.xcframework
+
+      - name: Upload xcframework zip as artifact
         if: ${{ success() }}
         uses: actions/upload-artifact@v3
         with:
-          name: ios-xcframework
-          path: prebuilt/bundle-apple-xcframework-ios/*.xcframework
+          name: ffmpeg-kit-https-6.0.3-ios-xcframework
+          path: prebuilt/bundle-apple-xcframework-ios/ffmpeg-kit-https-6.0.3-ios-xcframework.zip
+
 
   # build-main-on-macos-ventura:
   #   name: ios main on ventura
