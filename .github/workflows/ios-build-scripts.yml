@@ -1,31 +1,30 @@
 name: ios build scripts
 
 on:
-  workflow_dispatch:
-  # push:
-  #   branches:
-  #     - development
-  #     - main
-  #   paths:
-  #     - '.github/workflows/ios-build-scripts.yml'
-  #     - 'apple/**'
-  #     - '!apple/README.md'
-  #     - 'scripts/**'
-  #     - 'tools/**'
-  #     - 'apple.sh'
-  #     - 'ios.sh'
-  # pull_request:
-  #   branches:
-  #     - development
-  #     - main
-  #   paths:
-  #     - '.github/workflows/ios-build-scripts.yml'
-  #     - 'apple/**'
-  #     - '!apple/README.md'
-  #     - 'scripts/**'
-  #     - 'tools/**'
-  #     - 'apple.sh'
-  #     - 'ios.sh'
+  push:
+    branches:
+      - development
+      - main
+    paths:
+      - '.github/workflows/ios-build-scripts.yml'
+      - 'apple/**'
+      - '!apple/README.md'
+      - 'scripts/**'
+      - 'tools/**'
+      - 'apple.sh'
+      - 'ios.sh'
+  pull_request:
+    branches:
+      - development
+      - main
+    paths:
+      - '.github/workflows/ios-build-scripts.yml'
+      - 'apple/**'
+      - '!apple/README.md'
+      - 'scripts/**'
+      - 'tools/**'
+      - 'apple.sh'
+      - 'ios.sh'
 
 jobs:
   build-main-on-macos-sonoma:
