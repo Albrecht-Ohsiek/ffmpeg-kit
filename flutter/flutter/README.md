@@ -48,7 +48,7 @@ a `ffmpeg_kit_flutter` package with `libvpx` inside.
 
 `ffmpeg-kit` provides eight packages that include different sets of external libraries. These packages are named
 according to the external libraries included. Refer to the
-[Packages](https://github.com/arthenica/ffmpeg-kit/wiki/Packages) wiki page to see the names of those
+[Packages](https://github.com/Albrecht-Ohsiek/ffmpeg-kit/wiki/Packages) wiki page to see the names of those
 packages and external libraries included in each one of them.
 
 #### 2.2 Installing Packages
@@ -77,7 +77,7 @@ dependencies:
 
 `ffmpeg_kit_flutter` is published in two variants: `Main Release` and `LTS Release`. Both releases share the
 same source code but is built with different settings (Architectures, API Level, iOS Min SDK, etc.). Refer to the
-[LTS Releases](https://github.com/arthenica/ffmpeg-kit/wiki/LTS-Releases) wiki page to see how they differ from each
+[LTS Releases](https://github.com/Albrecht-Ohsiek/ffmpeg-kit/wiki/LTS-Releases) wiki page to see how they differ from each
 other.
 
 #### 2.5 Platform Support
@@ -320,16 +320,16 @@ The following table shows Android API level, iOS deployment target and macOS dep
 ### 4. Test Application
 
 You can see how `FFmpegKit` is used inside an application by running `flutter` test applications developed under
-the [FFmpegKit Test](https://github.com/arthenica/ffmpeg-kit-test) project.
+the [FFmpegKit Test](https://github.com/Albrecht-Ohsiek/ffmpeg-kit-test) project.
 
 ### 5. Tips
 
-See [Tips](https://github.com/arthenica/ffmpeg-kit/wiki/Tips) wiki page.
+See [Tips](https://github.com/Albrecht-Ohsiek/ffmpeg-kit/wiki/Tips) wiki page.
 
 ### 6. License
 
-See [License](https://github.com/arthenica/ffmpeg-kit/wiki/License) wiki page.
+See [License](https://github.com/Albrecht-Ohsiek/ffmpeg-kit/wiki/License) wiki page.
 
 ### 7. Patents
 
-See [Patents](https://github.com/arthenica/ffmpeg-kit/wiki/Patents) wiki page.
+See [Patents](https://github.com/Albrecht-Ohsiek/ffmpeg-kit/wiki/Patents) wiki page.
