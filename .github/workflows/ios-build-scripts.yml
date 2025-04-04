@@ -1,30 +1,31 @@
 name: ios build scripts
 
 on:
-  push:
-    branches:
-      - development
-      - main
-    paths:
-      - '.github/workflows/ios-build-scripts.yml'
-      - 'apple/**'
-      - '!apple/README.md'
-      - 'scripts/**'
-      - 'tools/**'
-      - 'apple.sh'
-      - 'ios.sh'
-  pull_request:
-    branches:
-      - development
-      - main
-    paths:
-      - '.github/workflows/ios-build-scripts.yml'
-      - 'apple/**'
-      - '!apple/README.md'
-      - 'scripts/**'
-      - 'tools/**'
-      - 'apple.sh'
-      - 'ios.sh'
+  workflow_dispatch:
+  # push:
+  #   branches:
+  #     - development
+  #     - main
+  #   paths:
+  #     - '.github/workflows/ios-build-scripts.yml'
+  #     - 'apple/**'
+  #     - '!apple/README.md'
+  #     - 'scripts/**'
+  #     - 'tools/**'
+  #     - 'apple.sh'
+  #     - 'ios.sh'
+  # pull_request:
+  #   branches:
+  #     - development
+  #     - main
+  #   paths:
+  #     - '.github/workflows/ios-build-scripts.yml'
+  #     - 'apple/**'
+  #     - '!apple/README.md'
+  #     - 'scripts/**'
+  #     - 'tools/**'
+  #     - 'apple.sh'
+  #     - 'ios.sh'
 
 jobs:
   build-main-on-macos-sonoma:
@@ -32,7 +33,8 @@ jobs:
     runs-on: macos-14
     strategy:
       matrix:
-        xcode: [ '15.4', '16.2' ]
+        xcode: [ '16.2' ]
+        # xcode: [ '15.4', '16.2' ]
     defaults:
       run:
         shell: bash
@@ -50,26 +52,33 @@ jobs:
       - name: print ffbuild logs
         if: ${{ failure() }}
         run: '[[ -f ./src/ffmpeg/ffbuild/config.log ]] && tail -50 ./src/ffmpeg/ffbuild/config.log'
-  build-main-on-macos-ventura:
-    name: ios main on ventura
-    runs-on: macos-13
-    strategy:
-      matrix:
-        xcode: [ '14.3.1', '15.2' ]
-    defaults:
-      run:
-        shell: bash
-    steps:
-      - uses: actions/checkout@v4
-      - name: prerequisites
-        run: brew install autoconf automake libtool pkg-config curl git cmake nasm
-      - name: set up xcode
-        run: echo "export DEVELOPER_DIR=/Applications/Xcode_${{ matrix.xcode }}.app/Contents/Developer" > ~/.xcode.for.ffmpeg.kit.sh
-      - name: run the build script
-        run: ./ios.sh --xcframework --enable-ios-audiotoolbox --enable-ios-avfoundation --enable-ios-bzip2 --enable-ios-libiconv --enable-ios-videotoolbox --enable-ios-zlib
-      - name: print build logs
-        if: ${{ always() }}
-        run: cat build.log
-      - name: print ffbuild logs
-        if: ${{ failure() }}
-        run: '[[ -f ./src/ffmpeg/ffbuild/config.log ]] && tail -50 ./src/ffmpeg/ffbuild/config.log'
+      - name: Upload xcframework as artifact
+        if: ${{ success() }}
+        uses: actions/upload-artifact@v3
+        with:
+          name: ios-xcframework
+          path: prebuilt/bundle-apple-xcframework-ios/*.xcframework
+
+  # build-main-on-macos-ventura:
+  #   name: ios main on ventura
+  #   runs-on: macos-13
+  #   strategy:
+  #     matrix:
+  #       xcode: [ '14.3.1', '15.2' ]
+  #   defaults:
+  #     run:
+  #       shell: bash
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #     - name: prerequisites
+  #       run: brew install autoconf automake libtool pkg-config curl git cmake nasm
+  #     - name: set up xcode
+  #       run: echo "export DEVELOPER_DIR=/Applications/Xcode_${{ matrix.xcode }}.app/Contents/Developer" > ~/.xcode.for.ffmpeg.kit.sh
+  #     - name: run the build script
+  #       run: ./ios.sh --xcframework --enable-ios-audiotoolbox --enable-ios-avfoundation --enable-ios-bzip2 --enable-ios-libiconv --enable-ios-videotoolbox --enable-ios-zlib
+  #     - name: print build logs
+  #       if: ${{ always() }}
+  #       run: cat build.log
+  #     - name: print ffbuild logs
+  #       if: ${{ failure() }}
+  #       run: '[[ -f ./src/ffmpeg/ffbuild/config.log ]] && tail -50 ./src/ffmpeg/ffbuild/config.log'
