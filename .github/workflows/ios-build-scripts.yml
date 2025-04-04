@@ -25,6 +25,7 @@ on:
       - 'tools/**'
       - 'apple.sh'
       - 'ios.sh'
+  workflow_dispatch:
 
 jobs:
   build-main-on-macos-sonoma:
