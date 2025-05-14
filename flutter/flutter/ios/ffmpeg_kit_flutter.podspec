@@ -1,49 +1,23 @@
 Pod::Spec.new do |s|
   s.name             = 'ffmpeg_kit_flutter'
   s.version          = '6.0.3'
-  s.summary          = 'Mathu FFmpeg Kit for iOS'
+  s.summary          = 'FFmpeg Kit for Flutter'
   s.description      = 'A Flutter plugin for running FFmpeg and FFprobe commands.'
-  s.homepage         = 'https://bitbucket.org/mathu_dev/ffmpeg-kit'
-  s.license          = { :type => 'LGPL-3.0' }
-  s.author           = { 'Albrecht' => 'albrecht.ohsiek@eps.ch' }
+  s.homepage         = 'https://github.com/arthenica/ffmpeg-kit'
+  s.license          = { :file => '../LICENSE' }
+  s.author           = { 'ARTHENICA' => 'open-source@arthenica.com' }
 
-  s.platform         = :ios
-  s.ios.deployment_target = '12.1'
-  s.requires_arc     = true
+  s.platform            = :ios
+  s.requires_arc        = true
   s.static_framework    = true
 
-  s.source           = { 
-    :http => 'https://bitbucket.org/mathu_dev/ffmpeg-kit-binary/raw/7e9a6ddfd4255e46360651a2e012279aaf650820/downloads/mathu-ffmpeg-kit-ios-6.0.3.zip',
-    :flatten => true
-  }
+  s.source              = { :path => '.' }
   s.source_files        = 'Classes/**/*'
   s.public_header_files = 'Classes/**/*.h'
 
+
   s.dependency          'Flutter'
   s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES', 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'i386' }
+  s.vendored_frameworks = 'bundle-apple-xcframework-ios-lts/*.xcframework'
 
-  s.libraries        = [
-    'z',
-    'bz2',
-    'c++',
-    'iconv'
-  ]
-
-  s.ios.frameworks = [
-    'AudioToolbox',
-    'AVFoundation',
-    'CoreMedia',
-    'VideoToolbox'
-  ]
-
-  s.ios.vendored_frameworks = [
-    'ffmpegkit.xcframework',
-    'libavcodec.xcframework',
-    'libavdevice.xcframework',
-    'libavfilter.xcframework',
-    'libavformat.xcframework',
-    'libavutil.xcframework',
-    'libswresample.xcframework',
-    'libswscale.xcframework'
-  ]
 end
