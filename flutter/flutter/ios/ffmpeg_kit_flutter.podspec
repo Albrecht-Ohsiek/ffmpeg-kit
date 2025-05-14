@@ -10,8 +10,17 @@ Pod::Spec.new do |s|
   s.platform         = :ios
   s.ios.deployment_target = '12.1'
   s.requires_arc     = true
+  s.static_framework    = true
 
-  s.source           = { :http => 'https://bitbucket.org/mathu_dev/ffmpeg-kit-binary/raw/7e9a6ddfd4255e46360651a2e012279aaf650820/downloads/mathu-ffmpeg-kit-ios-6.0.3.zip' }
+  s.source           = { 
+    :http => 'https://bitbucket.org/mathu_dev/ffmpeg-kit-binary/raw/7e9a6ddfd4255e46360651a2e012279aaf650820/downloads/mathu-ffmpeg-kit-ios-6.0.3.zip',
+    :flatten => true
+  }
+  s.source_files        = 'Classes/**/*'
+  s.public_header_files = 'Classes/**/*.h'
+
+  s.dependency          'Flutter'
+  s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES', 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'i386' }
 
   s.libraries        = [
     'z',
