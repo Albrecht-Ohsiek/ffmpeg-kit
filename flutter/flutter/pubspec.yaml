@@ -25,7 +25,7 @@ dependencies:
     git:
       url: git@bitbucket.org:mathu_dev/ffmpeg-kit.git
       ref: main
-      path: flutter_platform_interface
+      path: flutter/flutter_platform_interface
 
   flutter:
     sdk: flutter
