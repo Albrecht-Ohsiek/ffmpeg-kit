@@ -1,8 +1,8 @@
 Pod::Spec.new do |s|
-  s.name             = 'ffmpeg-kit-ios'
+  s.name             = 'ffmpeg_kit_flutter'
   s.version          = '6.0.3'
   s.summary          = 'Mathu FFmpeg Kit for iOS'
-  s.description      = 'A Flutter plugin for running FFmpeg and FFprobe commands.',
+  s.description      = 'A Flutter plugin for running FFmpeg and FFprobe commands.'
   s.homepage         = 'https://bitbucket.org/mathu_dev/ffmpeg-kit'
   s.license          = { :type => 'LGPL-3.0' }
   s.author           = { 'Albrecht' => 'albrecht.ohsiek@eps.ch' }
