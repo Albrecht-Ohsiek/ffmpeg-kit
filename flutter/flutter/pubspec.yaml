@@ -1,7 +1,5 @@
 name: ffmpeg_kit_flutter
 description: FFmpeg Kit for Flutter. Supports Android, iOS and macOS platforms.
-repository: https://bitbucket.org/mathu_dev/ffmpeg-kit
-homepage: https://bitbucket.org/mathu_dev/ffmpeg-kit
 version: 6.0.3
 publish_to: none
 
@@ -23,7 +21,7 @@ flutter:
 dependencies:
   ffmpeg_kit_flutter_platform_interface:
     git:
-      url: git@bitbucket.org:mathu_dev/ffmpeg-kit.git
+      url: https://github.com/Albrecht-Ohsiek/ffmpeg-kit.git
       ref: main
       path: flutter/flutter_platform_interface
 
